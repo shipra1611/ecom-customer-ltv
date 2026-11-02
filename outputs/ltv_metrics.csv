@@ -1,0 +1,4 @@
+model,RMSE,MAE,R2,spearman,top_decile_revenue_share
+Mean baseline,5511.143,1213.005,-0.0,0.0,0.1
+Linear (RFM),3319.592,639.511,0.637,0.603,0.602
+XGBoost,3541.68,600.107,0.587,0.629,0.615
