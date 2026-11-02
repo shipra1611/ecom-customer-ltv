@@ -11,6 +11,7 @@ Python, SQL (SQLite), XGBoost, scikit-learn, Tableau-ready CSVs. Real data: UCI 
 | 6-month LTV (XGBoost) | `sql/04_ltv_features.sql`, `src/05_ltv_xgboost.py` | `tableau/ltv_predictions.csv` |
 
 Run: `pip install -r requirements.txt`, put the CSV at `data/raw/online_retail_II.csv`, then `./run_all.sh`.
+https://www.kaggle.com/datasets/mashlyn/online-retail-ii-uci
 
 ## Data after cleaning
 1,067,371 raw rows -> **802,632 line items, 36,594 orders, 5,852 customers, GBP 17.4M gross revenue.**
@@ -49,8 +50,4 @@ Config selection: 6 XGBoost configs were compared with this same CV (squared-err
 - **Campaign lift.** The dataset has no campaign or send log, so persona-vs-generic conversion cannot be measured and is not claimed. The earlier simulated version is archived in `simulated/` and its numbers are properties of the generator.
 - **Tableau workbook (.twbx).** Connect to the three CSVs in `tableau/`. Suggested sheets: persona size and revenue share (customer_segments), cohort retention heatmap (cohort_retention, month_offset on columns), predicted-decile vs actual revenue (ltv_predictions).
 
-## Interview notes
-- Say "6-month forward revenue", not "lifetime value": the horizon is six months.
-- RMSE is in GBP and inflated by outliers; quote R2, MAE and the top-decile capture instead.
-- Be ready to explain why XGBoost does not clearly beat a linear RFM model here (small n, heavy tail, spend history already carries most signal).
-- Revenue excludes returns, so Champions' share is gross.
+
